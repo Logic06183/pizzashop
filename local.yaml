@@ -12,8 +12,8 @@ services:
     depends_on:
       - "db"
     env_file:
-      - ./src/.env
-    command: /start
+      - .envs/.local/.django
+    command: ["/wait_for_db.sh", "/start"]
     volumes:
       - media:/app/media/
 
@@ -29,8 +29,13 @@ services:
       - POSTGRES_DB=pizzitalia
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data:
   media:
+
