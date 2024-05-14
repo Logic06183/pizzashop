@@ -1,3 +1,4 @@
+# Use a specific version of Python
 FROM python:3.7-slim-buster
 
 # Environment variables for Python behavior
@@ -9,9 +10,7 @@ WORKDIR /app
 
 # Install necessary packages and dependencies
 RUN apt-get update \
-  && apt-get install -y build-essential \
-  && apt-get install -y libpq-dev \
-  && apt-get install -y telnet netcat \
+  && apt-get install -y build-essential libpq-dev telnet netcat postgresql-client \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
@@ -19,8 +18,8 @@ RUN apt-get update \
 RUN pip install --upgrade pip
 
 # Install Python dependencies
-COPY ./requirements .
-RUN pip install -r local.txt
+COPY ./requirements /app/requirements
+RUN pip install -r /app/requirements/local.txt
 
 # Copy and adjust permissions for the start script
 COPY ./compose/local/django/start /start
@@ -34,9 +33,7 @@ RUN chmod +x /wait_for_db.sh
 # Copy application source code
 COPY ./src /app
 
-# Install PostgreSQL client tools
-RUN apt-get update \
-  && apt-get install -y build-essential libpq-dev telnet netcat postgresql-client \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && rm -rf /var/lib/apt/lists/*
+# Default command to run the start script
+CMD ["/start"]
+
 

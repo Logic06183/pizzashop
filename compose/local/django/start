@@ -4,7 +4,14 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+# Wait for the database to be ready
+/wait_for_db.sh
 
+# Run database migrations
 python /app/manage.py migrate
+
+# Load initial data
 python /app/manage.py loaddata init
+
+# Start the Django development server
 python /app/manage.py runserver 0.0.0.0:8000

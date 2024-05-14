@@ -1,4 +1,4 @@
-version: '3.8'  # Make sure to use a version that Docker Compose recognizes
+version: '3.8'
 
 services:
   django:
@@ -12,9 +12,10 @@ services:
     depends_on:
       - db
     env_file:
-      - .envs/.local/.django
-    command: "/start"
+      - .envs/.local/.django  # Correct path to your .env file
+    command: ["/start"]
     volumes:
+      - ./src:/app
       - media:/app/media/
 
   db:
@@ -27,11 +28,10 @@ services:
     environment:
       - POSTGRES_DB=pizzitalia
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres   
+      - POSTGRES_PASSWORD=postgres
 
 volumes:
   postgres_data:
   media:
-
 
 

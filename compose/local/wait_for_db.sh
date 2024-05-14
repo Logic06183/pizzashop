@@ -3,13 +3,14 @@
 set -e
 
 host="$DB_HOST"
-user="$POSTGRES_USER"
 shift
+cmd="$@"
 
-until pg_isready -h "$host" -U "$user"; do
+until pg_isready -h "$host" -U "$POSTGRES_USER"; do
   >&2 echo "Postgres is unavailable - sleeping"
-  sleep 5
+  sleep 1
 done
 
 >&2 echo "Postgres is up - executing command"
-exec "$@"
+exec $cmd
+
