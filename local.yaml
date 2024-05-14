@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'  # Make sure to use a version that Docker Compose recognizes
 
 services:
   django:
@@ -10,32 +10,28 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - "db"
+      - db
     env_file:
       - .envs/.local/.django
-    command: ["/wait_for_db.sh", "/start"]
+    command: "/start"
     volumes:
       - media:/app/media/
 
   db:
-    restart: always
     image: postgres:12
     container_name: pizza_db
     ports:
-      - "5432"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=pizzitalia
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - POSTGRES_PASSWORD=postgres   
 
 volumes:
   postgres_data:
   media:
+
+
 
