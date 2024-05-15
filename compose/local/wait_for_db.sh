@@ -3,7 +3,6 @@
 set -e
 
 host="$DB_HOST"
-shift
 cmd="$@"
 
 until pg_isready -h "$host" -U "$POSTGRES_USER"; do
@@ -13,8 +12,3 @@ done
 
 >&2 echo "Postgres is up - executing command"
 exec $cmd
-
-
-
-
-

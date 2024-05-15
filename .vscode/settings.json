@@ -1,5 +1,10 @@
 {
     "githubPullRequests.ignoredPullRequestBranches": [
         "master"
+    ],
+    "DockerRun.DisableDockerrc": true,
+    "DockerRun.Containers": [
+        "7c091114ee45",
+        "21a697479a56"
     ]
 }

@@ -11,8 +11,8 @@ from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 
 from addresses.models import Address
-from menu.models import (Extra, Pasta, Platter, RegularPizza, Salad,
-                         SicilianPizza, Sub, Topping)
+from menu.models import (RegularPizza,
+                         SicilianPizza)
 
 from .models import Order, OrderItem, Payment
 

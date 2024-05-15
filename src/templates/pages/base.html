@@ -6,30 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Pizzitalia{% endblock %} | {% if '/' == request.path %}The True
-        Italian{% else %}Pizzitalia{% endif %}</title>
+    <title>{% block title %}John Dough's Sourdough Pizzeria{% endblock %} | {% if '/' == request.path %}The True
+        Pizzeria{% else %}John Dough's{% endif %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/css/uikit.min.css"
         integrity="sha256-1NCiLO1eL8xsDn3wFHlM37FhxQjBruKz/veyTbWSWHk=" crossorigin="anonymous" />
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Pizzitalia, The True Italian.">
-    <meta name="description" content="We sell award-winning sicilian-style pizza and mouth-watering steak subs! ">
+    <meta name="title" content="John Dough's Sourdough Pizzeria">
+    <meta name="description" content="We sell award-winning sourdough pizza and mouth-watering vegan options!">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://pizzitalia.herokuapp.com/">
-    <meta property="og:title" content="The True Italian.">
-    <meta property="og:description"
-        content="We sell award-winning sicilian-style pizza and mouth-watering steak subs! ">
-    <meta property="og:image" content="{% static 'images/carousel-reg_pizza.jpg' %}">
+    <meta property="og:url" content="http://your-website-url.com/">
+    <meta property="og:title" content="John Dough's Sourdough Pizzeria">
+    <meta property="og:description" content="We sell award-winning sourdough pizza and mouth-watering vegan options!">
+    <meta property="og:image" content="{% static 'images/restaurant_logo.png' %}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://pizzitalia.herokuapp.com/">
-    <meta property="twitter:title" content="The True Italian.">
-    <meta property="twitter:description"
-        content="We sell award-winning sicilian-style pizza and mouth-watering steak subs! ">
-    <meta property="twitter:image" content="{% static 'images/carousel-reg_pizza.jpg' %}">
+    <meta property="twitter:url" content="http://your-website-url.com/">
+    <meta property="twitter:title" content="John Dough's Sourdough Pizzeria">
+    <meta property="twitter:description" content="We sell award-winning sourdough pizza and mouth-watering vegan options!">
+    <meta property="twitter:image" content="{% static 'images/restaurant_logo.png' %}">
+
     {% block head %}
     {% endblock %}
 </head>

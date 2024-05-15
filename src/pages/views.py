@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse, render, Http404
 from django.views.decorators.gzip import gzip_page
 
-from menu.models import Pasta, Platter, RegularPizza, Salad, SicilianPizza, Sub
+from menu.models import RegularPizza, SicilianPizza
 
 # Create your views here.
 
@@ -9,10 +9,6 @@ from menu.models import Pasta, Platter, RegularPizza, Salad, SicilianPizza, Sub
 def index(request):
     context = {
         "reg_pizza": RegularPizza.objects.all(),
-        "sic_pizza": SicilianPizza.objects.all(),
-        "subs": Sub.objects.all(),
-        "pastas": Pasta.objects.all(),
-        "salads": Salad.objects.all(),
-        "platters": Platter.objects.all()
+        "sic_pizza": SicilianPizza.objects.all()
     }
     return render(request, 'pages/index.html', context)

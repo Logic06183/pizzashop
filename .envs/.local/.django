@@ -1,6 +1,6 @@
 SECRET_KEY=secret-key
 DEBUG=True
-ALLOWED_HOSTS=localhost
+ALLOWED_HOSTS=localhost,127.0.0.1
 DATABASE_URL=postgres://postgres:postgres@db:5432/pizzitalia
 DB_HOST=db
 POSTGRES_USER=postgres
@@ -13,4 +13,5 @@ STRIPE_KEY=stripe-key
 PLACES_API_KEY=AIzaSyBzjkB8I36fDz82-zKRREXQ-2A79BVty7s
 DEFAULT_FROM_EMAIL=mail@example.com
 DJANGO_SETTINGS_MODULE=pizzashop.settings.local
+
 
