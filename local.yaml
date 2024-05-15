@@ -12,10 +12,9 @@ services:
     depends_on:
       - db
     env_file:
-      - .envs/.local/.django  # Correct path to your .env file
-    command: ["/start"]
+      - .envs/.local/.django
+    command: ["/wait_for_db.sh", "db", "/start"]
     volumes:
-      - ./src:/app
       - media:/app/media/
 
   db:
@@ -33,5 +32,4 @@ services:
 volumes:
   postgres_data:
   media:
-
 

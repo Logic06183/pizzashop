@@ -28,6 +28,7 @@ RUN chmod +x /start
 
 # Copy and adjust permissions for the wait_for_db script
 COPY ./compose/local/wait_for_db.sh /wait_for_db.sh
+RUN sed -i 's/\r$//' /wait_for_db.sh
 RUN chmod +x /wait_for_db.sh
 
 # Copy application source code
@@ -35,5 +36,10 @@ COPY ./src /app
 
 # Default command to run the start script
 CMD ["/start"]
+
+
+
+
+
 
 
